@@ -18,7 +18,7 @@ def num_to_N(number):
         while number > 0:
             result[1].append(number % 10)
             result[0] += 1
-            number /= 10
+            number //= 10
     return result
 
 
@@ -37,7 +37,7 @@ def copy_N(N):
     Копирование натурального числа
     """
     result = [N[0], []]
-    for digin in N[1]:
+    for digit in N[1]:
         result[1].append(digit)
     return result
 
@@ -69,8 +69,8 @@ def copy_Z(Z):
     """
     Копирование целого числа
     """
-    N = [Z[1], Z[2]]
-    return [Z[0], copy_N(N)]
+    N = copy_N([Z[1], Z[2]])
+    return [Z[0], N[0], N[1]]
 
 
 def rat_to_Q(n, m):
@@ -115,6 +115,7 @@ def P_to_coef(P):
     result = []
     for q in P[1]:
         result.insert(0, Q_to_rat(q))
+    return result
 
 
 def copy_P(P):
