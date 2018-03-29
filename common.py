@@ -32,6 +32,16 @@ def N_to_num(N):
     return result
 
 
+def copy_N(N):
+    """
+    Копирование натурального числа
+    """
+    result = [N[0], []]
+    for digin in N[1]:
+        result[1].append(digit)
+    return result
+
+
 def num_to_Z(number):
     """
     Перевод числа в целое
@@ -55,6 +65,14 @@ def Z_to_num(Z):
     return result if Z[0] == 0 else -result
 
 
+def copy_Z(Z):
+    """
+    Копирование целого числа
+    """
+    N = [Z[1], Z[2]]
+    return [Z[0], copy_N(N)]
+
+
 def rat_to_Q(n, m):
     """
     Перевод пары чисел (числитель,знаменатель) в рациональное
@@ -66,7 +84,14 @@ def Q_to_rat(Q):
     """
     Перевод рационального в пару (числитель,знаменатель)
     """
-    return (Z_to_num(Q[0]), N_to_num(Q[1]))
+    return [Z_to_num(Q[0]), N_to_num(Q[1])]
+
+
+def copy_Q(Q):
+    """
+    Копирование рационального числа
+    """
+    return [copy_Z(Q[0]), copy_N(Q[1])]
 
 
 def coef_to_P(coefs):
@@ -81,4 +106,38 @@ def coef_to_P(coefs):
         result[1].append(q)
         result[0] += 1
     return result
+
+
+def P_to_coef(P):
+    """
+    Перевод многочлена в набор коэффициентов вида [числитель, знаменатель]
+    """
+    result = []
+    for q in P[1]:
+        result.insert(0, Q_to_rat(q))
+
+
+def copy_P(P):
+    """
+    Копирование многочлена
+    """
+    result = [P[0], []]
+    for q in P[1]:
+        result[1].append(copy_Q(q))
+    return result
+
+def down_p(polynom):
+    """
+    Удаление нулевых старших коэффициентов
+    Пока старший коэффициент равен нулю, то удаляет его и понижает степень.
+    """
+    i = polynom[0] - 1
+    while i >= 0 and polynom[1][i][0] == rat_to_Q(0, 1):
+        polynom[0] -= 1
+        del polynom[1][i]
+        i -= 1
+
+    # Если были удалены все коэффициенты
+    if (polynom[0] == 0):
+        polynom[1].append(rat_to_Q(0, 1))
 
