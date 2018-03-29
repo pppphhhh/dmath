@@ -1,4 +1,4 @@
-import SUB_QQ_Q from SUB_QQ_Q
+from rational import SUB_QQ_Q
 from common import copy_P, rat_to_Q, down_p
 
 def SUB_PP_P(polynom1, polynom2):

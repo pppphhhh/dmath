@@ -1,5 +1,5 @@
-import DIV_NN_N
-import GCF_NN_N
+from natural.DIV_NN_N import DIV_NN_N
+from natural.GCF_NN_N import GCF_NN_N
 
 def LCM_NN_N(a,b):
     """
