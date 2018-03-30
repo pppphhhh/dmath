@@ -1,13 +1,14 @@
 import sys
 
-from PyQt5 import QtCore, QtWidgets, uic
+from PyQt5 import QtWidgets
+
+from mainwin import MainWindow
 
 
 app = QtWidgets.QApplication(sys.argv)
 
-win = QtWidgets.QMainWindow()
-ui = uic.loadUi('mainwin.ui', win)
+win = MainWindow()
 
 win.show()
-
 app.exec()
+
