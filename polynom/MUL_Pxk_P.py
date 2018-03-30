@@ -1,5 +1,6 @@
 from common import copy_P, rat_to_Q
 
+
 def MUL_Pxk_P(polynom, k):
     """
     P-4
@@ -14,3 +15,4 @@ def MUL_Pxk_P(polynom, k):
     result[1] = [rat_to_Q(0, 1)] * k + result[1]
     # Возвращаем полученный многочлен
     return result
+

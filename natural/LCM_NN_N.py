@@ -1,7 +1,7 @@
-from natural.DIV_NN_N import DIV_NN_N
-from natural.GCF_NN_N import GCF_NN_N
+from natural import DIV_NN_N, GCF_NN_N
 
-def LCM_NN_N(a,b):
+
+def LCM_NN_N(number1, number2):
     """
     N-14
     НОК двух натуральных чисел
@@ -9,5 +9,5 @@ def LCM_NN_N(a,b):
     """
 
     # НОК(A, B) = A * B / НОД(A, B)
-    return DIV_NN_N(MUL_NN_N(a, b) , GCF_NN_N(a,b))
+    return DIV_NN_N(MUL_NN_N(number1, number2), GCF_NN_N(number1,number2))
 

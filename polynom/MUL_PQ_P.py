@@ -1,6 +1,7 @@
 from rational import MUL_QQ_Q
 from common import num_to_N, num_to_Z
 
+
 def MUL_PQ_P(polynom, num):
     """
     P-3
@@ -19,3 +20,4 @@ def MUL_PQ_P(polynom, num):
 
     # Возвращаем полученный многочлен      
     return result
+

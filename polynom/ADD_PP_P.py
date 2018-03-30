@@ -1,6 +1,7 @@
 from rational import ADD_QQ_Q
 from common import copy_P, down_p
 
+
 def ADD_PP_P(polynom1, polynom2):
     """
     P-1
